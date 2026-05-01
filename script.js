@@ -8,18 +8,14 @@ window.onload = function() {
 
 function openJournal(title, themeColor, bgColor) {
     currentJournal = title;
-    
-    // Set the theme colors dynamically
     document.documentElement.style.setProperty('--main-theme', themeColor);
     document.documentElement.style.setProperty('--bg-theme', bgColor);
-    
     document.getElementById('library-view').classList.add('hidden');
     document.getElementById('writing-view').classList.remove('hidden');
     displayPage();
 }
 
 function showLibrary() {
-    // Reset to library pink
     document.documentElement.style.setProperty('--bg-theme', '#fff0f5');
     document.getElementById('library-view').classList.remove('hidden');
     document.getElementById('writing-view').classList.add('hidden');
@@ -30,7 +26,6 @@ function setupSidebar() {
     const daySelect = document.getElementById('day-select');
     const months = ["January", "February", "March", "April", "May", "June", 
                     "July", "August", "September", "October", "November", "December"];
-    
     monthSelect.innerHTML = ""; daySelect.innerHTML = "";
     months.forEach((m, i) => {
         let opt = document.createElement('option'); opt.value = i; opt.innerHTML = m;
@@ -59,9 +54,7 @@ function displayPage() {
         document.getElementById('month-select').value = currentDate.getMonth();
         document.getElementById('day-select').value = currentDate.getDate();
 
-        const sticker = stickerBox[Math.floor(Math.random() * stickerBox.length)];
-        document.getElementById('sticker-container').innerText = sticker;
-
+        document.getElementById('sticker-container').innerText = stickerBox[Math.floor(Math.random() * stickerBox.length)];
         pageElement.classList.remove('page-flip-animation');
     }, 300);
 }
