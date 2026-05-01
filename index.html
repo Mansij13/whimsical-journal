@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Girlypop Library ✨</title>
+    <link rel="stylesheet" href="aesthetics.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 📚 THE LIBRARY VIEW -->
+    <div id="library-view" class="library-screen">
+        <h1 class="library-title">My Whimsy Library 🌸</h1>
+        <div class="shelf">
+            <!-- Journal 1: Pink Theme -->
+            <div class="journal-cover cover-pink" onclick="openJournal('Dreamy Thoughts', '#ff85a1', '#fff0f5')">
+                <span>Dreamy Thoughts</span>
+            </div>
+            <!-- Journal 2: Lavender Theme -->
+            <div class="journal-cover cover-purple" onclick="openJournal('Midnight Musings', '#b19cd9', '#f3efff')">
+                <span>Midnight Musings</span>
+            </div>
+            <!-- Journal 3: Red Theme -->
+            <div class="journal-cover cover-red" onclick="openJournal('Daily Magic', '#ff4d4d', '#ffebeb')">
+                <span>Daily Magic</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📖 THE WRITING VIEW -->
+    <div id="writing-view" class="hidden">
+        <div class="sidebar">
+            <button class="back-to-library" onclick="showLibrary()">◀ Back to Library</button>
+            <h3>Jump to Date 🌸</h3>
+            <select id="month-select" onchange="jumpToDate()"></select>
+            <select id="day-select" onchange="jumpToDate()"></select>
+        </div>
+
+        <div class="journal-container">
+            <button class="flip-btn" onclick="changePage(-1)">◀</button>
+            <div class="journal-page" id="main-page">
+                <div id="sticker-container" class="corner-sticker"></div>
+                <div class="journal-header">
+                    <span class="date-stamp" id="current-date"></span>
+                    <span class="whimsy-icon">📖🎀✨</span>
+                </div>
+                <textarea id="journal-input" placeholder="Write your heart out..."></textarea>
+                <div class="footer-tools">
+                    <button class="save-btn" onclick="saveEntry()">✨ Save Page ✨</button>
+                    <p class="page-number" id="page-nav"></p>
+                </div>
+            </div>
+            <button class="flip-btn" onclick="changePage(1)">▶</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

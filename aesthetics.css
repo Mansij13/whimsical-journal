@@ -1,0 +1,73 @@
+:root {
+    --main-theme: #ffb6c1; /* Default Pink */
+    --bg-theme: #fff0f5;   /* Default Soft Pink */
+}
+
+body {
+    background-color: var(--bg-theme) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    transition: background-color 0.5s ease; /* Smooth color transition */
+    overflow: hidden;
+}
+
+/* 📚 LIBRARY VIEW */
+.library-screen { text-align: center; }
+.library-title { font-family: 'Dancing Script', cursive; color: #ff85a1; font-size: 3rem; margin-bottom: 40px; }
+.shelf {
+    display: flex; gap: 30px; background: rgba(255, 255, 255, 0.5);
+    padding: 40px; border-bottom: 15px solid #e2a0b0; border-radius: 20px;
+}
+
+.journal-cover {
+    width: 150px; height: 220px; border-radius: 5px 15px 15px 5px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; color: white;
+    font-family: 'Dancing Script', cursive; font-size: 1.2rem; padding: 10px; text-align: center;
+}
+
+.journal-cover:hover { transform: translateY(-20px) rotate(-5deg); }
+.cover-pink { background: #ffb6c1; border-left: 8px solid #ff85a1; }
+.cover-purple { background: #dcd0ff; border-left: 8px solid #b19cd9; }
+.cover-red { background: #ff4d4d; border-left: 8px solid #cc0000; }
+
+/* 📖 WRITING VIEW */
+.hidden { display: none !important; }
+#writing-view { display: flex; gap: 40px; align-items: center; }
+
+.sidebar {
+    background: white; padding: 20px; border-radius: 15px;
+    border: 2px solid var(--main-theme); display: flex;
+    flex-direction: column; gap: 10px; width: 180px;
+}
+
+.journal-page {
+    background: white !important; padding: 40px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    border-left: 12px solid var(--main-theme) !important; /* Themeable Spine */
+    width: 500px; height: 600px; position: relative;
+    transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+    transform-origin: left center;
+}
+
+.flip-btn, .back-to-library, .save-btn {
+    background-color: var(--main-theme) !important;
+    color: white; border: none; border-radius: 25px;
+    cursor: pointer; font-weight: bold; transition: 0.3s;
+}
+
+.date-stamp { font-family: 'Dancing Script', cursive; font-size: 28px; color: var(--main-theme); }
+
+textarea {
+    flex-grow: 1; border: none; outline: none; font-size: 20px; line-height: 1.6;
+    background: repeating-linear-gradient(white, white 31px, var(--bg-theme) 32px);
+    resize: none;
+}
+
+.corner-sticker { position: absolute; top: 10px; right: 15px; font-size: 40px; opacity: 0.8; transform: rotate(15deg); }
+.page-flip-animation { transform: rotateY(-20deg) translateX(-50px); opacity: 0; }
